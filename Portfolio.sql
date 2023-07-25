@@ -1,4 +1,4 @@
- SELECT *
+SELECT *
 FROM PORTFOLIO.dbo.CovidDeaths
 WHERE continent IS NOT NULL
 ORDER BY 3,4
@@ -130,7 +130,7 @@ RollingPeopleVaccinated numeric
 
 Insert into #PercentPopulationVaccinated
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
+	, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
 FROM PORTFOLIO.dbo.CovidDeaths AS dea
 JOIN PORTFOLIO.dbo.CovidVaccinations AS vac
 	ON dea.location = vac.location
@@ -146,7 +146,7 @@ FROM #PercentPopulationVaccinated
 
 CREATE VIEW PercentPopulationVaccinated AS
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
+	, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
 FROM PORTFOLIO.dbo.CovidDeaths AS dea
 JOIN PORTFOLIO.dbo.CovidVaccinations AS vac
 	ON dea.location = vac.location
@@ -157,7 +157,7 @@ WHERE dea.continent IS NOT NULL
 
 
 
- SELECT *
+SELECT *
 FROM PORTFOLIO.dbo.CovidDeaths
 WHERE continent IS NOT NULL
 ORDER BY 3,4
@@ -248,7 +248,7 @@ ORDER BY 2, 3
 --### creating a rolling count of total vaccinated people per day
 
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
+	, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
 FROM PORTFOLIO.dbo.CovidDeaths AS dea
 JOIN PORTFOLIO.dbo.CovidVaccinations AS vac
 	ON dea.location = vac.location
@@ -257,13 +257,13 @@ WHERE dea.continent IS NOT NULL
 ORDER BY 2, 3
 
 
---### Use CTE
+--### Using CTE
 
 WITH PopVsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated)
 AS
 (
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
+	, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
 FROM PORTFOLIO.dbo.CovidDeaths AS dea
 JOIN PORTFOLIO.dbo.CovidVaccinations AS vac
 	ON dea.location = vac.location
@@ -289,7 +289,7 @@ RollingPeopleVaccinated numeric
 
 Insert into #PercentPopulationVaccinated
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
+	, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
 FROM PORTFOLIO.dbo.CovidDeaths AS dea
 JOIN PORTFOLIO.dbo.CovidVaccinations AS vac
 	ON dea.location = vac.location
@@ -305,7 +305,7 @@ FROM #PercentPopulationVaccinated
 
 CREATE VIEW PercentPopulationVaccinated AS
 SELECT dea.continent, dea.location, dea.date, dea.population, vac.new_vaccinations
-, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
+	, SUM(CAST(vac.new_vaccinations AS INT)) OVER (PARTITION BY dea.location ORDER BY dea.location, dea.date) AS RollingPeopleVaccinated
 FROM PORTFOLIO.dbo.CovidDeaths AS dea
 JOIN PORTFOLIO.dbo.CovidVaccinations AS vac
 	ON dea.location = vac.location
