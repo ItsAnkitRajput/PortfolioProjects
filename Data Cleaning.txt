@@ -48,7 +48,7 @@ WHERE a.PropertyAddress IS NULL
 
 -----------------------------------------------------------------------------------------------
 
---Breaking Out Address into Individual Columns (Address, City, State). (Using SUBSTRING method)
+--Breaking Out PropertyAddress Column into Individual Columns (Address, City). (Using SUBSTRING method)
 
 
 SELECT PropertyAddress
@@ -79,7 +79,7 @@ FROM portfolio.dbo.NashvilleHousing
 
 ---------------------------------------------------------
 
---Now the OwnerAddress column. (Using PARSENAME method)
+--Breaking Out the OwnerAddress Column into Individual Columns (Address, City, State) (Using PARSENAME method)
 
 SELECT OwnerAddress
 FROM portfolio.dbo.NashvilleHousing
@@ -165,7 +165,7 @@ FROM portfolio.dbo.NashvilleHousing
 --ORDER BY ParcelID
 
 
-DELETE                      --CHANGE TO "SELECT *" TO SEE ANY REMAINING DUPLICATES
+DELETE                      --CHANGE "DELETE" TO "SELECT *" TO SEE ANY REMAINING DUPLICATES
 FROM RowNumCTE
 WHERE ROW_NUM > 1
 --ORDER BY PropertyAddress
