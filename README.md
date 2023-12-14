@@ -1,1 +1,1 @@
-Download the html file then open it
+Download the html file(ctrl+shift+s) then open it
