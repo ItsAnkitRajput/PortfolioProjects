@@ -1,1 +1,1 @@
-Download the html file then view it in desktop mode on any browser
+Download the html file then view it on any PC web browser 
