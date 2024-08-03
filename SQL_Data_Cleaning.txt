@@ -1,3 +1,5 @@
+-- This was done in Microsoft Sql Server Management Studio.
+
 SELECT *
 FROM portfolio.dbo.NashvilleHousing
 
